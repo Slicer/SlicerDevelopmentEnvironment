@@ -9,8 +9,8 @@ function Controller() {
     // Copied from https://bugreports.qt.io/browse/QTIFW-1072?jql=project%20%3D%20QTIFW
     // there are some changes between Qt Online installer 3.0.1 and 3.0.2. Welcome page does some network
     // queries that is why the next button is called too early. 
-    var page = gui.pageWidgetByObjectName("WelcomePage")
-    page.completeChanged.connect(welcomepageFinished)
+    //var page = gui.pageWidgetByObjectName("WelcomePage")
+    //page.completeChanged.connect(welcomepageFinished)
 }
 
 Controller.prototype.WelcomePageCallback = function() {
@@ -29,15 +29,15 @@ welcomepageFinished = function()
 //From : https://github.com/rabits/dockerfiles/blob/93d2d5b1d8f4c5fba9db67086a945e7462011707/5.14-desktop/extract-qt-installer.sh
 Controller.prototype.CredentialsPageCallback = function() {
     console.log("Credentials Page");
-    var login = installer.value("QT_CI_LOGIN");
-    var password = installer.value("QT_CI_PASSWORD");
-    if( login === "" || password === "" ) {
-        console.log("No credentials provided - could stuck here forever");
-        gui.clickButton(buttons.NextButton);
-    }
-    var widget = gui.currentPageWidget();
-    widget.loginWidget.EmailLineEdit.setText(login);
-    widget.loginWidget.PasswordLineEdit.setText(password);
+    // var login = installer.value("QT_CI_LOGIN");
+    // var password = installer.value("QT_CI_PASSWORD");
+    // if( login === "" || password === "" ) {
+    //     console.log("No credentials provided - could stuck here forever");
+    //     gui.clickButton(buttons.NextButton);
+    // }
+    // var widget = gui.currentPageWidget();
+    // widget.loginWidget.EmailLineEdit.setText(login);
+    // widget.loginWidget.PasswordLineEdit.setText(password);
     gui.clickButton(buttons.NextButton);
 }
 
